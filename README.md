@@ -1,12 +1,3 @@
-
-______   __  _____ _____ ____ _____ 
- / ___\ \ / / |  ___| ____/ ___|_   _|
-| |    \ V /  | |_  |  _| \___ \ | |  
-| |___  | |   |  _| | |___ ___) || |  
- \____| |_|   |_|   |_____|____/ |_|
-
-
-
 Pré requis :
 
 Pour le bon fonctionnement de CY'FEST il est important d'être muni de la bibliothèque "NCurses" ainsi qu'un terminal "Linux"  
