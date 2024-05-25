@@ -26,7 +26,7 @@ CY'FEST permet au Manager de créer différentes salles de concerts en y ajoutan
 
 C'est une fois les salles créées que les festivaliers peuvent réserver leurs places. Ils peuvent choisir le concert auquel ils veulent assister en mettant le numéro inscrit à côté du nom de l'artiste, choisir le nombre de places qu'ils veulent réserver, la catégorie ainsi que son emplacement. Il existe également une réduction de 20% pour tout étudiant voulant réserver une place. Bien évidemment, il est possible pour les festivaliers de se faire rembourser en cas d'imprévu, il suffit simplement d'avoir auparavant noté l'emplacement de la place à supprimer.
 
-
+Bon festival ;)
 
 
 
