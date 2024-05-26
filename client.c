@@ -191,7 +191,7 @@ void reservation_simple(WINDOW *win, Salle *salle) { // Lancé par la fonction r
 }
 
 int reservation(WINDOW *win, Salle tableau[], int nb_salles) { // Appelle la fonction réservation_simple
-  int nb_tableau = better_scan_compare(win, 1, 0, 0, nb_salles, "Pour quel concert voulez-vous réserver ? ") - 1; // Vérifie que la valeur saisie est entre 0 et le nombre de salles, -1 pour l'utiliser dans le tableau (faciliter l'expérience utilisateur)
+  int nb_tableau = better_scan_compare(win, 1, 0, 1, nb_salles, "Pour quel concert voulez-vous réserver ? ") - 1; // Vérifie que la valeur saisie est entre 0 et le nombre de salles, -1 pour l'utiliser dans le tableau (faciliter l'expérience utilisateur)
   werase(win);
   mvwprintw(win, 1, 0, "Si vous souhaitez annuler, taper 0 "); // Pour annuler la réservation appuyez sur 0
   int nb_reservation = better_scan_compare(win, 2, 0, 0,
@@ -211,7 +211,7 @@ int reservation(WINDOW *win, Salle tableau[], int nb_salles) { // Appelle la fon
 void remboursement(WINDOW *win, Salle tableau[], int nb_salles) { 
   int etudiant;
   werase(win);
-  int nb_tableau = better_scan_compare(win, 1, 0, 0, nb_salles, "Pour quel concert voulez-vous vous faire rembourser ? ") - 1; // Vérifie que la valeur saisie est entre 0 et le nombre de salles, -1 pour l'utiliser dans le tableau (faciliter l'expérience utilisateur)
+  int nb_tableau = better_scan_compare(win, 1, 0, 1, nb_salles, "Pour quel concert voulez-vous vous faire rembourser ? ") - 1; // Vérifie que la valeur saisie est entre 0 et le nombre de salles, -1 pour l'utiliser dans le tableau (faciliter l'expérience utilisateur)
   int i, j;
   werase(win);
   i = better_scan_compare(win, 1, 0, 1, tableau[nb_tableau].concert.categorieA.cat_rangees + tableau[nb_tableau].concert.categorieB.cat_rangees + tableau[nb_tableau].concert.categorieC.cat_rangees,
