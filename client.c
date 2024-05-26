@@ -261,6 +261,7 @@ void remboursement(WINDOW *win, Salle tableau[], int nb_salles) {
       */
 
      etudiant = better_scan_compare(win, 1, 0, 0, 1, "Etes-vous un étudiant ? (1 pour oui, 0 pour non) : "); // Etudiant réduit le prix de 20%
+     werase(win);
       if (etudiant) {
         mvwprintw(win, 1, 0, "Vous avez bien été remboursé de %.2f euros ! ", 0.8*tableau[nb_tableau].concert.categorieB.prix); // Affiche à l'utilisateur qu'il a été remboursé.
       } else {

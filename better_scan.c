@@ -17,7 +17,7 @@ void better_scan_str(WINDOW *win, int y, int x, char *message, char *tableau, in
   }
 
   mvwprintw(win, y, x, "%s", message);
-  getyx(win, ny, nx);
+  getyx(win, ny, nx); // Récupère la position après avoir écrit le message
 
   while (TRUE) {
     chr = wgetch(win);
@@ -26,8 +26,8 @@ void better_scan_str(WINDOW *win, int y, int x, char *message, char *tableau, in
     }
     if ((chr == KEY_BACKSPACE || chr == KEY_DC || chr == 127) && longueur > 0 ) {
       tableau[--longueur] = '\0';
-      mvwaddstr(win, ny, nx+longueur, " ");
-      wmove(win, ny, nx+longueur);
+      mvwaddstr(win, ny, nx+longueur, " "); // Enlève l'affichage du dernier caractère
+      wmove(win, ny, nx+longueur); // Redéplace le curseur
     }
     if (((chr >= 'a' && chr <= 'z') || (chr >= 'A' && chr <= 'Z') || (chr >= '0' && chr <= '9') || chr == ' ' || chr == 44) && (longueur < taille - 1)) { //a verifier
       waddch(win, chr);
@@ -44,17 +44,18 @@ int better_scan_compare(WINDOW *win, int y, int x, int min_1, int max_1, char *m
   int nx, ny;
 
   mvwprintw(win, y, x, "%s", message);
-  getyx(win, ny, nx);
+  getyx(win, ny, nx); // Récupère la position après avoir écrit le message
 
   while (TRUE) {
     chr = wgetch(win);
     if ((chr == KEY_ENTER || chr == '\n' || chr == '\r') && longueur > 0  && (atoi(tableau) >= min_1 && atoi(tableau) <= max_1)) {
+      // atoi transforme la chaine en entier
       break;
     }
     if ((chr == KEY_BACKSPACE || chr == KEY_DC || chr == 127) && longueur > 0 ) {
       tableau[--longueur] = '\0';
-      mvwaddstr(win, ny, nx+longueur, " ");
-      wmove(win, ny, nx+longueur);
+      mvwaddstr(win, ny, nx+longueur, " "); // Enlève l'affichage du dernier caractère
+      wmove(win, ny, nx+longueur); // Redéplace le curseur
     }
     if (chr >= '0' && chr <= '9' && longueur < MAX-1) {
       waddch(win, chr);
@@ -64,7 +65,7 @@ int better_scan_compare(WINDOW *win, int y, int x, int min_1, int max_1, char *m
   return atoi(tableau);
 }
 
-int better_scan_compare_f(WINDOW *win, int y, int x, int min_1, int max_1, char *message){ // Better_scan pour demander uniquement des int en comparant entre une valeur (int) minimum et maximum 
+float better_scan_compare_f(WINDOW *win, int y, int x, int min_1, int max_1, char *message){ // Better_scan pour demander uniquement des int en comparant entre une valeur (int) minimum et maximum 
 
   char tableau[MAX] = {0};
   int chr;
@@ -72,22 +73,22 @@ int better_scan_compare_f(WINDOW *win, int y, int x, int min_1, int max_1, char 
   int nx, ny;
 
   mvwprintw(win, y, x, "%s", message);
-  getyx(win, ny, nx);
-
+  getyx(win, ny, nx); // Récupère la position après avoir écrit le message
+ 
   while (TRUE) {
     chr = wgetch(win);
-    if ((chr == KEY_ENTER || chr == '\n' || chr == '\r') && longueur > 0  && (atoi(tableau) >= min_1 && atoi(tableau) <= max_1)) {
+    if ((chr == KEY_ENTER || chr == '\n' || chr == '\r') && longueur > 0  && (atof(tableau) >= min_1 && atof(tableau) <= max_1)) {
       break;
     }
     if ((chr == KEY_BACKSPACE || chr == KEY_DC || chr == 127) && longueur > 0 ) {
       tableau[--longueur] = '\0';
-      mvwaddstr(win, ny, nx+longueur, " ");
-      wmove(win, ny, nx+longueur);
+      mvwaddstr(win, ny, nx+longueur, " "); // Enlève l'affichage du dernier caractère
+      wmove(win, ny, nx+longueur); // Redéplace le curseur
     }
     if ((chr >= '0' && chr <= '9' && longueur < MAX-1) || chr == '.') {
       waddch(win, chr);
       tableau[longueur++] = chr;
     }
   }
-  return atoi(tableau);
+  return atof(tableau);
 }

@@ -11,7 +11,7 @@
 
 void better_scan_str(WINDOW *win, int y, int x, char *message, char *tableau, int taille);
 int better_scan_compare(WINDOW *win, int y, int x, int min_1, int max_1, char *message);
-int better_scan_compare_f(WINDOW *win, int y, int x, int min_1, int max_1, char *message);
+float better_scan_compare_f(WINDOW *win, int y, int x, int min_1, int max_1, char *message);
 
 
 #endif
